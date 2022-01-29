@@ -22,7 +22,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return 2 * Double(self.size.height)
     }
     var table_width : Double {
-        print ("Width: \(self.size.width) Height: \(self.size.height)")
         if self.size.width * 16/9 <= self.size.height {
             return self.size.width * 0.7
         } else {
@@ -73,7 +72,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             ball?.size = CGSize(width: max(table_width / TABLE_BALL_RATIO + ball_height * 10, 0), height: max(table_width / TABLE_BALL_RATIO + ball_height * 10, 0))
         }
     }
-    let gravity : Double = -3
+    let gravity : Double = -5
     var ball_Z_Velocity : Double = 0 // vertical velocity
     
     // game play status
@@ -296,6 +295,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if side_spin {
                 let spin = ((pad1) ? p1_X_Velocity : -p2_X_Velocity) / 4
+                ball_spin /= 4
                 ball_spin += spin
                 ball_X_Velocity += (ball_Y_Velocity > 0) ? (ball_spin / 2) : (-ball_spin / 2)
                 ball_X_Velocity += ((pad1) ? p1_X_Velocity : p2_X_Velocity) / 1024
@@ -323,6 +323,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if ball_Z_Velocity > 2 {
                     ball_Z_Velocity = 2
                 }
+                print(ball_Z_Velocity)
             }
             
             passedTheNet = false
@@ -476,9 +477,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     // very powerful in real life "lucky ball"
                     ball_Y_Velocity = ball_Y_Velocity * 0.1
                 } else {
-                    message?.text = "NET"
-                    ball_Y_Velocity = -ball_Y_Velocity * 0.1
-                    round_over()
+                    if Int.random(in: 1...3) == 1 {
+                        message?.text = "NET"
+                        ball_Y_Velocity = -ball_Y_Velocity * 0.1
+                        round_over()
+                    }
                 }
             }
             
