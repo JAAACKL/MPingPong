@@ -142,6 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         p1 = SKSpriteNode(imageNamed: "pad1 um")
         p1?.size = CGSize(width: ball!.size.width * 3, height: ball!.size.width * 3 / p1!.size.width * p1!.size.height)
         p1?.zPosition = 10
+        p1?.zRotation = (30/360) * 2 * .pi
         p1?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         p1?.name = "p1"
         p1?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: p1!.size.width * 0.8, height: ball!.size.width))
@@ -152,6 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         p2 = SKSpriteNode(imageNamed: "pad2 um")
         p2?.size = CGSize(width: ball!.size.width * 3, height: ball!.size.width * 3 / p2!.size.width * p2!.size.height)
         p2?.zPosition = 10
+        p2?.zRotation = (-135/360) * 2 * .pi
         p2?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         p2?.name = "p2"
         p2?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: p2!.size.width * 0.8, height: ball!.size.width))
@@ -165,17 +167,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreBoard.strokeColor = .clear
         scoreBoard.fillColor = UIColor(red: 101.0/255, green: 23.0/255, blue: 201.0/255, alpha: 1)
         self.addChild(scoreBoard)
-        let minipad1_icon = SKSpriteNode(imageNamed: "mini pad 1 um")
+        let minipad1_icon = SKSpriteNode(imageNamed: "pad1 um")
+        minipad1_icon.size = CGSize(width: ball!.size.width, height: ball!.size.width * minipad1_icon.size.height / minipad1_icon.size.width)
         minipad1_icon.zPosition = 1
         minipad1_icon.position = CGPoint(x: scoreBoard.frame.midX, y: scoreBoard.frame.minY + 30)
         minipad1_icon.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        minipad1_icon.zRotation = -.pi / 2
+        minipad1_icon.zRotation = -.pi / 4 * 3
         scoreBoard.addChild(minipad1_icon)
-        let minipad2_icon = SKSpriteNode(imageNamed: "mini pad 2 um")
+        let minipad2_icon = SKSpriteNode(imageNamed: "pad2 um")
+        minipad2_icon.size = CGSize(width: ball!.size.width, height: ball!.size.width * minipad2_icon.size.height / minipad2_icon.size.width)
         minipad2_icon.zPosition = 1
         minipad2_icon.position = CGPoint(x: scoreBoard.frame.midX, y: scoreBoard.frame.maxY - 30)
         minipad2_icon.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        minipad2_icon.zRotation = -.pi / 6
+        minipad2_icon.zRotation = -.pi / 4
         scoreBoard.addChild(minipad2_icon)
         
         topLbl = SKLabelNode()
