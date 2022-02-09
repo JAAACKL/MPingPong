@@ -103,10 +103,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        self.backgroundColor = UIColor.viewBackgroundColor()
+        
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector.zero
         
-        table = SKSpriteNode(imageNamed: "table um")
+        table = SKSpriteNode(imageNamed: "table \(UserDefaults.standard.string(forKey: "theme")!)")
         table?.size = CGSize(width: table_width, height: table_width * table!.size.height / table!.size.width)
         table?.zPosition = 0.1
         table?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -139,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         shadow?.addChild(circle)
         self.addChild(shadow!)
         
-        p1 = SKSpriteNode(imageNamed: "pad1 um")
+        p1 = SKSpriteNode(imageNamed: "pad1 \(UserDefaults.standard.string(forKey: "p1")!)")
         p1?.size = CGSize(width: ball!.size.width * 3, height: ball!.size.width * 3 / p1!.size.width * p1!.size.height)
         p1?.zPosition = 10
         p1?.zRotation = (30/360) * 2 * .pi
@@ -150,7 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         p1?.physicsBody?.isDynamic = false
         self.addChild(p1!)
         
-        p2 = SKSpriteNode(imageNamed: "pad2 um")
+        p2 = SKSpriteNode(imageNamed: "pad2 \(UserDefaults.standard.string(forKey: "p2")!)")
         p2?.size = CGSize(width: ball!.size.width * 3, height: ball!.size.width * 3 / p2!.size.width * p2!.size.height)
         p2?.zPosition = 10
         p2?.zRotation = (-135/360) * 2 * .pi
@@ -167,14 +169,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreBoard.strokeColor = .clear
         scoreBoard.fillColor = UIColor(red: 101.0/255, green: 23.0/255, blue: 201.0/255, alpha: 1)
         self.addChild(scoreBoard)
-        let minipad1_icon = SKSpriteNode(imageNamed: "pad1 um")
+        let minipad1_icon = SKSpriteNode(imageNamed: "pad1 \(UserDefaults.standard.string(forKey: "p1")!)")
         minipad1_icon.size = CGSize(width: ball!.size.width, height: ball!.size.width * minipad1_icon.size.height / minipad1_icon.size.width)
         minipad1_icon.zPosition = 1
         minipad1_icon.position = CGPoint(x: scoreBoard.frame.midX, y: scoreBoard.frame.minY + 30)
         minipad1_icon.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         minipad1_icon.zRotation = -.pi / 4 * 3
         scoreBoard.addChild(minipad1_icon)
-        let minipad2_icon = SKSpriteNode(imageNamed: "pad2 um")
+        let minipad2_icon = SKSpriteNode(imageNamed: "pad2 \(UserDefaults.standard.string(forKey: "p2")!)")
         minipad2_icon.size = CGSize(width: ball!.size.width, height: ball!.size.width * minipad2_icon.size.height / minipad2_icon.size.width)
         minipad2_icon.zPosition = 1
         minipad2_icon.position = CGPoint(x: scoreBoard.frame.midX, y: scoreBoard.frame.maxY - 30)
