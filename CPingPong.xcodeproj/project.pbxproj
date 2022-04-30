@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6231C69B281DC20900FBE67C /* mainmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6231C69A281DC20900FBE67C /* mainmenu.swift */; };
 		62822005279E0B1D007F97E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62822004279E0B1D007F97E2 /* AppDelegate.swift */; };
 		62822009279E0B1D007F97E2 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 62822008279E0B1D007F97E2 /* Actions.sks */; };
 		6282200B279E0B1D007F97E2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282200A279E0B1D007F97E2 /* GameScene.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6231C69A281DC20900FBE67C /* mainmenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainmenu.swift; sourceTree = "<group>"; };
 		62822001279E0B1D007F97E2 /* CPingPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPingPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62822004279E0B1D007F97E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62822008279E0B1D007F97E2 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				62822037279E1111007F97E2 /* GameScene.sks */,
 				6282200A279E0B1D007F97E2 /* GameScene.swift */,
 				6282200C279E0B1D007F97E2 /* GameViewController.swift */,
+				6231C69A281DC20900FBE67C /* mainmenu.swift */,
 				6282200E279E0B1D007F97E2 /* Main.storyboard */,
 				62D2121627B3693000E626CA /* ThemeSettingsController.swift */,
 				62822011279E0B21007F97E2 /* Assets.xcassets */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6231C69B281DC20900FBE67C /* mainmenu.swift in Sources */,
 				62D2121727B3693000E626CA /* ThemeSettingsController.swift in Sources */,
 				6282200B279E0B1D007F97E2 /* GameScene.swift in Sources */,
 				6282200D279E0B1D007F97E2 /* GameViewController.swift in Sources */,
